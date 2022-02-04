@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Sys_Vacina.Data
+namespace ProgramaEstagio.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

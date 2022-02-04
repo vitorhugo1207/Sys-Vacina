@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
-namespace Sys_Vacina.Data.Migrations
+namespace ProgramaEstagio.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

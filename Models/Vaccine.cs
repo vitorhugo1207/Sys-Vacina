@@ -20,8 +20,9 @@ namespace ProgramaEstagio.Models
         public decimal VaccinePrice { get; set; }
 
         [Column("DataVaccination")]
-        [Display(Name = "Data Vaccine")]
-        [StringLength(8)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Data Vaccine")]    
         [Required(ErrorMessage = "You must insert data Vaccine")]
         public DateTime DataVaccination { get; set; }
 

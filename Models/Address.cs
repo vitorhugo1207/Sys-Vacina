@@ -42,6 +42,11 @@ namespace ProgramaEstagio.Models
         [Required(ErrorMessage = "You must insert the state.")]
         public string State { get; set; }
 
-        public virtual ICollection<Person> People { get; set; }
+        [Column("PersonID")]
+        [Display(Name = "Name client")]
+        [Required(ErrorMessage = "You must insert the name.")]
+        public int PersonID { get; set; }
+
+        public virtual Person Person{ get; set; }
     }
 }

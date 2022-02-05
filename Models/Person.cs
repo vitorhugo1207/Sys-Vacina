@@ -20,7 +20,8 @@ namespace ProgramaEstagio.Models
         public string FullName { get; set; } // Set a variable for column
 
         [Column("BirthDate")]
-        [StringLength(8)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // Formating string
         [Display(Name = "Birth Date")]
         [Required(ErrorMessage = "The field birth date is required.")]
         public DateTime BirthDate { get; set; }
@@ -31,7 +32,7 @@ namespace ProgramaEstagio.Models
         [Required(ErrorMessage = "The field sex if required.")]
         public string sex { get; set; }
 
-        public virtual Address Address { get; set; }
+        public virtual ICollection<Address> Address { get; set; }
         public virtual ICollection<Vaccine> Vaccines { get; set; }
     }
 }

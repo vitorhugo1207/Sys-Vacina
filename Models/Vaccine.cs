@@ -31,6 +31,6 @@ namespace ProgramaEstagio.Models
         [Required(ErrorMessage = "You must insert the client name.")]
         public int PersonID { get; set; }
 
-        public virtual ICollection<Person> People { get; set; }
+        public virtual Person Person { get; set; }
     }
 }

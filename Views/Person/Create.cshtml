@@ -1,4 +1,4 @@
-﻿@model ProgramaEstagio.Models.RegisterViewModel
+﻿@model ProgramaEstagio.Models.Person
 
 @{
     ViewData["Title"] = "Create";
@@ -13,25 +13,27 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Person.FullName" class="control-label"></label>
-                <input asp-for="Person.FullName" class="form-control" />
-                <span asp-validation-for="Person.FullName" class="text-danger"></span>
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.BirthDate" class="control-label"></label>
-                <input asp-for="Person.BirthDate" class="form-control" />
-                <span asp-validation-for="Person.BirthDate" class="text-danger"></span>
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.sex" class="control-label"></label>
-                <input asp-for="Person.sex" class="form-control" />
-                <span asp-validation-for="Person.sex" class="text-danger"></span>
+                <label asp-for="sex" class="control-label"></label>
+                <select asp-for="sex" class="form-control" >
+                    <option></option>
+                    <option>Male</option>
+                    <option>Fema</option>
+                </select>
+                <span asp-validation-for="sex" class="text-danger"></span>
             </div>
-
-            <h1>Address</h1>
             
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Next" class="btn btn-primary" />
             </div>
         </form>
     </div>

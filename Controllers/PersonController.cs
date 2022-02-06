@@ -60,8 +60,9 @@ namespace ProgramaEstagio.Controllers
             {
                 _context.Add(person);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(Index));
             }
+            Response.Redirect($"../Address/Create?Name={person.ID}");
             return View(person);
         }
 

@@ -10,11 +10,11 @@ using ProgramaEstagio.Models;
 
 namespace ProgramaEstagio.Controllers
 {
-    public class AddresseController : Controller
+    public class AddressController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public AddresseController(ApplicationDbContext context)
+        public AddressController(ApplicationDbContext context)
         {
             _context = context;
         }

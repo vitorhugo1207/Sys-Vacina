@@ -72,6 +72,7 @@ namespace ProgramaEstagio.Controllers
         // GET: Addresse/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            RegisterViewModel register = new RegisterViewModel();
             if (id == null)
             {
                 return NotFound();
@@ -83,7 +84,8 @@ namespace ProgramaEstagio.Controllers
                 return NotFound();
             }
             ViewData["PersonID"] = new SelectList(_context.Person, "ID", "FullName", address.PersonID);
-            return View(address);
+            register.Address = address;
+            return View(register);
         }
 
         // POST: Addresse/Edit/5

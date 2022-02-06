@@ -1,4 +1,4 @@
-﻿@model ProgramaEstagio.Models.Address
+﻿@model ProgramaEstagio.Models.RegisterViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,36 +12,36 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
+            <input type="hidden" asp-for="Address.ID" />
             <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <label asp-for="Address.Country" class="control-label"></label>
+                <input asp-for="Address.Country" class="form-control" />
+                <span asp-validation-for="Address.Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Complement" class="control-label"></label>
-                <input asp-for="Complement" class="form-control" />
-                <span asp-validation-for="Complement" class="text-danger"></span>
+                <label asp-for="Address.Complement" class="control-label"></label>
+                <input asp-for="Address.Complement" class="form-control" />
+                <span asp-validation-for="Address.Complement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Distric" class="control-label"></label>
-                <input asp-for="Distric" class="form-control" />
-                <span asp-validation-for="Distric" class="text-danger"></span>
+                <label asp-for="Address.Distric" class="control-label"></label>
+                <input asp-for="Address.Distric" class="form-control" />
+                <span asp-validation-for="Address.Distric" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
+                <label asp-for="Address.City" class="control-label"></label>
+                <input asp-for="Address.City" class="form-control" />
+                <span asp-validation-for="Address.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
+                <label asp-for="Address.State" class="control-label"></label>
+                <input asp-for="Address.State" class="form-control" />
+                <span asp-validation-for="Address.State" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PersonID" class="control-label"></label>
-                <select asp-for="PersonID" class="form-control" asp-items="ViewBag.PersonID"></select>
-                <span asp-validation-for="PersonID" class="text-danger"></span>
+                <label asp-for="Address.PersonID" class="control-label"></label>
+                <select asp-for="Address.PersonID" class="form-control" asp-items="ViewBag.PersonID"></select>
+                <span asp-validation-for="Address.PersonID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

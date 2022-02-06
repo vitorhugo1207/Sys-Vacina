@@ -306,7 +306,6 @@ namespace ProgramaEstagio.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataVaccination")
-                        .HasMaxLength(8)
                         .HasColumnType("datetime2")
                         .HasColumnName("DataVaccination");
 
@@ -384,7 +383,7 @@ namespace ProgramaEstagio.Data.Migrations
                     b.HasOne("ProgramaEstagio.Models.Person", "Person")
                         .WithMany("Address")
                         .HasForeignKey("PersonID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Person");

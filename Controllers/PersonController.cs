@@ -69,17 +69,20 @@ namespace ProgramaEstagio.Controllers
         // GET: Person/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            RegisterViewModel register = new RegisterViewModel(); // Return RegisterViewModel with Modals
             if (id == null)
             {
                 return NotFound();
             }
 
             var person = await _context.Person.FindAsync(id);
+
             if (person == null)
             {
                 return NotFound();
             }
-            return View(person);
+            register.Person = person; // Return RegisterViewModel with Modals
+            return View(register); // Return RegisterViewModel with Modals
         }
 
         // POST: Person/Edit/5

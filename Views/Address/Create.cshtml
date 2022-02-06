@@ -1,4 +1,4 @@
-﻿@model ProgramaEstagio.Models.RegisterViewModel
+﻿@model ProgramaEstagio.Models.Address
 
 @{
     ViewData["Title"] = "Create";
@@ -12,34 +12,34 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Address.PersonID" class="control-label"></label>
-                <select asp-for="Address.PersonID" class ="form-control" asp-items="ViewBag.PersonID" id="optionID"></select>
+            <div class="form-group" id="divOptionID">
+                <label asp-for="PersonID" class="control-label"></label>
+                <select asp-for="PersonID" class ="form-control" asp-items="ViewBag.PersonID"  id="optionID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Address.Country" class="control-label"></label>
-                <input asp-for="Address.Country" class="form-control" />
-                <span asp-validation-for="Address.Country" class="text-danger"></span>
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address.Complement" class="control-label"></label>
-                <input asp-for="Address.Complement" class="form-control" />
-                <span asp-validation-for="Address.Complement" class="text-danger"></span>
+                <label asp-for="Complement" class="control-label"></label>
+                <input asp-for="Complement" class="form-control" />
+                <span asp-validation-for="Complement" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address.Distric" class="control-label"></label>
-                <input asp-for="Address.Distric" class="form-control" />
-                <span asp-validation-for="Address.Distric" class="text-danger"></span>
+                <label asp-for="Distric" class="control-label"></label>
+                <input asp-for="Distric" class="form-control" />
+                <span asp-validation-for="Distric" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address.City" class="control-label"></label>
-                <input asp-for="Address.City" class="form-control" />
-                <span asp-validation-for="Address.City" class="text-danger"></span>
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address.State" class="control-label"></label>
-                <input asp-for="Address.State" class="form-control" />
-                <span asp-validation-for="Address.State" class="text-danger"></span>
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -53,11 +53,10 @@
         var url_string = document.URL;
         var url = new URL(url_string);
         var name = url.searchParams.get("Name");
-
         if(name){
             document.getElementById("optionID").value = name;
-            document.getElementById("optionID").disabled = true;
-            document.getElementById("optionID").style.cursor = "not-allowed";
+            document.getElementById("optionID").style.pointerEvents = "none"
+            document.getElementById("divOptionID").style.cursor = "not-allowed";
             window.history.replaceState({}, document.title, "/" + "../Address/Create");
         }
         // event.preventDefault();

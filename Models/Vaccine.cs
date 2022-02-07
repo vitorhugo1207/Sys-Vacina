@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProgramaEstagio.Models
 {
@@ -21,11 +23,12 @@ namespace ProgramaEstagio.Models
 
         [Column("VaccinePrice")]
         [Display(Name = "Preço da Vacina")]
-        [StringLength(20)]
+        [DisplayFormat(DataFormatString = "{0:N}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public decimal VaccinePrice { get; set; }
 
         [Column("DataVaccination")]
+        [StringLength(20)]
         [Display(Name = "Data da Vacinação")]
         public DateTime DataVaccination { get; set; }
 

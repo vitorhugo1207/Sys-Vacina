@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SysVacina.Migrations
+namespace ProgramaEstagio.Migrations
 {
     public partial class AddPersonAddressVacine : Migration
     {
@@ -197,8 +197,8 @@ namespace SysVacina.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     VaccineName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    VaccinePrice = table.Column<decimal>(type: "decimal(18,2)", maxLength: 20, precision: 18, scale: 2, nullable: false),
-                    DataVaccination = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    VaccinePrice = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    DataVaccination = table.Column<DateTime>(type: "datetime2", maxLength: 20, nullable: false),
                     PersonID = table.Column<int>(type: "int", maxLength: 100, nullable: false)
                 },
                 constraints: table =>

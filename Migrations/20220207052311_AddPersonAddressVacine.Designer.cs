@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgramaEstagio.Data;
 
-namespace SysVacina.Migrations
+namespace ProgramaEstagio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220207010152_AddPersonAddressVacine")]
+    [Migration("20220207052311_AddPersonAddressVacine")]
     partial class AddPersonAddressVacine
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -307,6 +307,7 @@ namespace SysVacina.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataVaccination")
+                        .HasMaxLength(20)
                         .HasColumnType("datetime2")
                         .HasColumnName("DataVaccination");
 
@@ -315,17 +316,16 @@ namespace SysVacina.Migrations
                         .HasColumnType("int")
                         .HasColumnName("PersonID");
 
-                    b.Property<decimal>("VaccinePrice")
-                        .HasMaxLength(20)
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)")
-                        .HasColumnName("VaccinePrice");
-
-                    b.Property<string>("VaccneName")
+                    b.Property<string>("VaccineName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("VaccineName");
+
+                    b.Property<decimal>("VaccinePrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("VaccinePrice");
 
                     b.HasKey("ID");
 
@@ -399,7 +399,7 @@ namespace SysVacina.Migrations
             modelBuilder.Entity("ProgramaEstagio.Models.Vaccine", b =>
                 {
                     b.HasOne("ProgramaEstagio.Models.Person", "Person")
-                        .WithMany("Vaccines")
+                        .WithMany("Vaccine")
                         .HasForeignKey("PersonID")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -411,7 +411,7 @@ namespace SysVacina.Migrations
                 {
                     b.Navigation("Address");
 
-                    b.Navigation("Vaccines");
+                    b.Navigation("Vaccine");
                 });
 #pragma warning restore 612, 618
         }

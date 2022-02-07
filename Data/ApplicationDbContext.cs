@@ -25,7 +25,7 @@ namespace ProgramaEstagio.Data
             {
                 entity.ToTable("Vaccine");
                 entity.Property(p => p.VaccinePrice).HasPrecision(18, 2); // Eightteen house Left decimal and two house Right decimal
-                entity.HasOne(p => p.Person).WithMany(p => p.Vaccines).HasForeignKey(p => p.PersonID).IsRequired().OnDelete(DeleteBehavior.NoAction); 
+                entity.HasOne(p => p.Person).WithMany(p => p.Vaccine).HasForeignKey(p => p.PersonID).IsRequired().OnDelete(DeleteBehavior.NoAction); 
                 // One person can have many vaccines. PersonID identificator. 
             });
             modelBuilder.Entity<Address>(entity =>

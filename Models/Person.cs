@@ -33,6 +33,6 @@ namespace ProgramaEstagio.Models
         public string sex { get; set; }
 
         public virtual ICollection<Address> Address { get; set; }
-        public virtual ICollection<Vaccine> Vaccines { get; set; }
+        public virtual ICollection<Vaccine> Vaccine { get; set; }
     }
 }

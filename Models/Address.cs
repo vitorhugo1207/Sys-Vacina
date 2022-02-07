@@ -14,38 +14,37 @@ namespace ProgramaEstagio.Models
         public int ID { get; set; }
 
         [Column("Street")]
-        [Display(Name = "Street")]
+        [Display(Name = "Rua")]
         [StringLength(100)]
-        [Required(ErrorMessage = "You must insert the street")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public string Country { get; set; }
 
         [Column("Complement")]
-        [Display(Name = "Complement")]
+        [Display(Name = "Complemento")]
         [StringLength(80)]
-        [Required(ErrorMessage = "You must insert the complement.")]
         public string Complement { get; set; }
 
         [Column("Distric")]
-        [Display(Name = "Distric")]
+        [Display(Name = "Bairro")]
         [StringLength(100)]
-        [Required(ErrorMessage = "You must insert the distric.")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public string Distric { get; set; }
 
         [Column("City")]
-        [Display(Name = "City")]
+        [Display(Name = "Cidade")]
         [StringLength(100)]
-        [Required(ErrorMessage = "You must insert the city.")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public string City { get; set; }
 
         [Column("State")]
-        [Display(Name = "State")]
+        [Display(Name = "Estado")]
         [StringLength(2)]
-        [Required(ErrorMessage = "You must insert the state.")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public string State { get; set; }
 
         [Column("PersonID")]
-        [Display(Name = "Name client")]
-        [Required(ErrorMessage = "You must insert the name.")]
+        [Display(Name = "Nome do Cliente")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public int PersonID { get; set; }
 
         public virtual Person Person{ get; set; }

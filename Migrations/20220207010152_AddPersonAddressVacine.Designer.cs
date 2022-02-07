@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProgramaEstagio.Data;
 
-namespace ProgramaEstagio.Data.Migrations
+namespace SysVacina.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220205192404_AddTableVaccine&Person")]
-    partial class AddTableVaccinePerson
+    [Migration("20220207010152_AddPersonAddressVacine")]
+    partial class AddPersonAddressVacine
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,7 +236,6 @@ namespace ProgramaEstagio.Data.Migrations
                         .HasColumnName("City");
 
                     b.Property<string>("Complement")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)")
                         .HasColumnName("Complement");
@@ -290,8 +289,8 @@ namespace ProgramaEstagio.Data.Migrations
 
                     b.Property<string>("sex")
                         .IsRequired()
-                        .HasMaxLength(4)
-                        .HasColumnType("nvarchar(4)")
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)")
                         .HasColumnName("Sex");
 
                     b.HasKey("ID");
@@ -308,7 +307,6 @@ namespace ProgramaEstagio.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataVaccination")
-                        .HasMaxLength(8)
                         .HasColumnType("datetime2")
                         .HasColumnName("DataVaccination");
 
@@ -318,10 +316,16 @@ namespace ProgramaEstagio.Data.Migrations
                         .HasColumnName("PersonID");
 
                     b.Property<decimal>("VaccinePrice")
-                        .HasMaxLength(10)
+                        .HasMaxLength(20)
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("VaccinePrice");
+
+                    b.Property<string>("VaccneName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("VaccineName");
 
                     b.HasKey("ID");
 
@@ -386,7 +390,7 @@ namespace ProgramaEstagio.Data.Migrations
                     b.HasOne("ProgramaEstagio.Models.Person", "Person")
                         .WithMany("Address")
                         .HasForeignKey("PersonID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Person");

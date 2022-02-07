@@ -140,8 +140,25 @@ namespace ProgramaEstagio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var person = await _context.Person.FindAsync(id);
-            _context.Person.Remove(person);
+            try
+            {
+                var address = await _context.Address.FindAsync(id);
+                var x = _context.Address.Where(Address => Address.PersonID == id).FirstOrDefault();
+                _context.Address.Remove(x);
+            }
+            catch { }
+            try
+            {
+                var vaccine = await _context.Vaccine.FindAsync(id);
+                var y = _context.Vaccine.Where(Vaccine => Vaccine.PersonID == id).FirstOrDefault();
+                _context.Vaccine.Remove(y);
+            }
+            catch { }
+            finally
+            {
+                var person = await _context.Person.FindAsync(id);
+                _context.Person.Remove(person);
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

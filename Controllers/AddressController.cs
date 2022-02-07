@@ -63,9 +63,10 @@ namespace ProgramaEstagio.Controllers
             {
                 _context.Add(address);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                // return RedirectToAction(nameof(Index));
             }
             ViewData["PersonID"] = new SelectList(_context.Person, "ID", "FullName", address.PersonID);
+            Response.Redirect($"/Vaccine/Create?Name={address.PersonID}");
             return View(address);
         }
 

@@ -57,7 +57,7 @@ namespace ProgramaEstagio.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,VaccinePrice,DataVaccination,PersonID")] Vaccine vaccine)
+        public async Task<IActionResult> Create([Bind("ID,VaccineName,VaccinePrice,DataVaccination,PersonID")] Vaccine vaccine)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ProgramaEstagio.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,VaccinePrice,DataVaccination,PersonID")] Vaccine vaccine)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,VaccineName,VaccinePrice,DataVaccination,PersonID")] Vaccine vaccine)
         {
             if (id != vaccine.ID)
             {

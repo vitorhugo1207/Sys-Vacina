@@ -28,6 +28,12 @@ namespace ProgramaEstagio.Data
                 entity.HasOne(p => p.Person).WithMany(p => p.Vaccines).HasForeignKey(p => p.PersonID).IsRequired().OnDelete(DeleteBehavior.NoAction); 
                 // One person can have many vaccines. PersonID identificator. 
             });
+            modelBuilder.Entity<Address>(entity =>
+            {
+                entity.ToTable("Address");
+                entity.HasOne(p => p.Person).WithMany(p => p.Address).HasForeignKey(p => p.PersonID).IsRequired().OnDelete(DeleteBehavior.NoAction);
+                // One person can have many vaccines. PersonID identificator. 
+            });
 
             base.OnModelCreating(modelBuilder);
         }

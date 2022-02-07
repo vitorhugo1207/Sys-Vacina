@@ -12,6 +12,17 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" id="divOptionID">
+                <label asp-for="PersonID" class="control-label"></label>
+                <select asp-for="PersonID" class ="form-control" asp-items="ViewBag.PersonID" id="optionID">
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VaccineName" class="control-label"></label>
+                <input asp-for="VaccineName" class="form-control" />
+                <span asp-validation-for="VaccineName" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="VaccinePrice" class="control-label"></label>
                 <input asp-for="VaccinePrice" class="form-control" />
@@ -19,12 +30,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="DataVaccination" class="control-label"></label>
-                <input asp-for="DataVaccination" class="form-control" />
+                <input asp-for="DataVaccination" class="form-control" value="@DateTime.Now" />
                 <span asp-validation-for="DataVaccination" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PersonID" class="control-label"></label>
-                <select asp-for="PersonID" class ="form-control" asp-items="ViewBag.PersonID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -32,6 +39,22 @@
         </form>
     </div>
 </div>
+
+<script defer>
+    function main(){
+        var url_string = document.URL;
+        var url = new URL(url_string);
+        var name = url.searchParams.get("Name");
+        if(name){
+            document.getElementById("optionID").value = name;
+            document.getElementById("optionID").style.pointerEvents = "none"
+            document.getElementById("divOptionID").style.cursor = "not-allowed";
+            window.history.replaceState({}, document.title, "/" + "../Vaccine/Create");
+        }
+        // event.preventDefault();
+    }
+    main()
+</script>
 
 <div>
     <a asp-action="Index">Back to List</a>

@@ -15,21 +15,21 @@ namespace ProgramaEstagio.Models
 
         [Column("Name")] // Column in table
         [StringLength(100)] // String Length
-        [Display(Name = "Full Name")] // Display
-        [Required(ErrorMessage = "The field full name is required.")] // Set as obligatory field
+        [Display(Name = "Nome Completo")] // Display
+        [Required(ErrorMessage = "Você deve preencher esse campo.")] // Set as obligatory field
         public string FullName { get; set; } // Set a variable for column
 
         [Column("BirthDate")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] // Formating string
-        [Display(Name = "Birth Date")]
-        [Required(ErrorMessage = "The field birth date is required.")]
+        [Display(Name = "Data de Nascimento")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public DateTime BirthDate { get; set; }
 
         [Column("Sex")]
-        [StringLength(4)]
-        [Display(Name = "Sex")]
-        [Required(ErrorMessage = "The field sex if required.")]
+        [StringLength(9)]
+        [Display(Name = "Sexo")]
+        [Required(ErrorMessage = "Você deve preencher esse campo.")]
         public string sex { get; set; }
 
         public virtual ICollection<Address> Address { get; set; }
